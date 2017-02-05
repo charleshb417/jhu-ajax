@@ -1,0 +1,62 @@
+.section_row {
+	font-family: "Lucida Sans Unicode", "Lucida Grande", sans-serif;
+	width: 100%;
+}
+
+.page_title {
+	font-size: 28px;
+}
+
+.section {
+	background-color: #e0e5ec;
+	border: 2px solid #c0cad8;
+	overflow: hidden;
+	text-overflow:ellipsis;
+}
+
+.section > .section_title_pane {
+	float: right;
+	padding-right: 10px;
+}
+
+.section > .section_content {
+
+}
+
+.text_label {
+	font-size: 1.2em;
+}
+
+/* Large View */
+@media (min-width: 992px) {
+	.sec_lg {
+		width: 30%;
+		height: 300px;
+		float: left;
+		margin: 5px;
+	}
+}
+
+/* Medium View */
+@media (min-width: 768px) and (max-width: 991px) {
+	.sec_med_2 {
+		width: 45%;
+		height: 300px;
+		margin-right: 5px;
+		margin-bottom: 5px;
+		float: left;
+	}
+
+	.sec_med_1 {
+		margin-left: 5px;
+		width: 90%;
+	}
+}
+
+/* Small / Mobile View */
+@media (max-width: 767px) {
+	.sec_sm {
+		width: 100%;
+		margin-bottom: 5px;
+	}
+}
