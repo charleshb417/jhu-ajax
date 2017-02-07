@@ -7,6 +7,10 @@
 	font-size: 1.75em;
 }
 
+.center_text {
+	text-align: center;
+}
+
 .section {
 	background-color: #e0e5ec;
 	border: 2px solid #c0cad8;
@@ -65,7 +69,7 @@
 	}
 
 	.show_lg {
-		display: inline;
+		display: block;
 	}
 }
 
@@ -85,7 +89,7 @@
 	}
 
 	.show_med {
-		display: inline;
+		display: block;
 	}
 }
 
@@ -98,11 +102,19 @@
 	}
 
 	.show_sm {
-		display: inline;
+		display: block;
 	}
 
 	.page_title {
 		font-family: "Trebuchet MS", Helvetica, sans-serif;
 		font-size: 20px;
+	}
+
+	.section_title_pane {
+		width: 100%;
+	}
+
+	.text_label {
+		text-align: center;
 	}
 }
