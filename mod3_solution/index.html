@@ -12,14 +12,36 @@
       <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
     <![endif]-->
 
-    <title>Boostrap Starter Page</title>
+    <title>Food, LLC</title>
     <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="css/styles.css">
   </head>
 <body>
 
-  <h1>Hello Coursera!</h1>
+  <!-- Navbar Code -->
+  <nav class="navbar navbar-default">
+    <div class="container-fluid">
+      <div class="navbar-header">
+        <a class="navbar-brand" href="#">
+          <span class="brand-title">Food, LLC</span>
+        </a>
+        <button type="button" class="navbar-toggle visible-xs collapsed" data-toggle="collapse" data-target="#dropdown-menu-content" aria-expanded="false">
+          <span class="sr-only">Toggle Navigation</span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+          <span class="icon-bar"></span>
+        </button>
+      </div>
 
+      <div id="dropdown-menu-content" class="collapse navbar-collapse">
+        <ul class="nav navbar-nav navbar-right">
+            <li class="dropdown-row"><a>Chicken</a></li>
+            <li class="dropdown-row"><a>Beef</a></li>
+            <li class="dropdown-row"><a>Sushi</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
   <!-- jQuery (Bootstrap JS plugins depend on it) -->
   <script src="js/jquery-1.11.3.min.js"></script>
   <script src="js/bootstrap.min.js"></script>
