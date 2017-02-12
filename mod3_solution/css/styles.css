@@ -3,3 +3,11 @@
 	font-size: 1.25em;
 	color: #000;
 }
+
+.page-title {
+	font-size: 1.75em;
+}
+
+#dropdown-menu-content > ul {
+	background-color: #ECFFFF;
+}
