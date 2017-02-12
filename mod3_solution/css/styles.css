@@ -11,3 +11,8 @@
 #dropdown-menu-content > ul {
 	background-color: #ECFFFF;
 }
+
+.menu-section {
+	background-color: #e0e5ec;
+	border: 2px solid #c0cad8;
+}
