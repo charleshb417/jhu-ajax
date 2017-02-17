@@ -85,8 +85,22 @@ WARNING!!! WARNING!!!
 
   console.log("================== OPTIONAL REQUIREMENT #3 LIST PRINTED BELOW ==================");
   // Additional requirement in order to reduce the speakSimple methods
+  var initialValue = { hello: [], bye: [] };
+  var reduceCallback = function(acc, name){
+    var firstLetter = name.charAt(0).toLowerCase();
+    if (firstLetter === 'j'){
+      acc.bye.push( byeSpeaker.speakSimple(name) );
+    } else {
+      acc.hello.push( helloSpeaker.speakSimple(name) );
+    }
+    return acc;
+  };
 
-
-
-
+  var reducedNames = names.reduce(reduceCallback, initialValue);
+  for (var nameIndex in reducedNames.hello){
+    console.log(reducedNames.hello[nameIndex]);
+  }
+  for (var nameIndex in reducedNames.bye){
+    console.log(reducedNames.bye[nameIndex]);
+  }
 })(); // end IIFE
