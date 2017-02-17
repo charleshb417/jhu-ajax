@@ -64,4 +64,29 @@ WARNING!!! WARNING!!!
       helloSpeaker.speak(name);
     }
   }
-})();
+  
+  console.log("================== REQUIREMENT #2 LIST PRINTED BELOW ==================");
+  // Additional requirement in order to map the speakSimple methods
+  var SpeakSimpleMap = function (arr){
+    return arr.map(function(name){
+      var firstLetter = name.charAt(0).toLowerCase();
+      if (firstLetter === 'j') {
+        return byeSpeaker.speakSimple(name);
+      } else {
+        return helloSpeaker.speakSimple(name);
+      }
+    });
+  };
+  var greetNames = SpeakSimpleMap(names);
+
+  for (var nameIndex in greetNames){
+    console.log(greetNames[nameIndex]);
+  }
+
+  console.log("================== OPTIONAL REQUIREMENT #3 LIST PRINTED BELOW ==================");
+  // Additional requirement in order to reduce the speakSimple methods
+
+
+
+
+})(); // end IIFE
