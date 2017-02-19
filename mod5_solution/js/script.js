@@ -22,6 +22,7 @@ var menuItemsUrl =
   "https://davids-restaurant.herokuapp.com/menu_items.json?category=";
 var menuItemsTitleHtml = "snippets/menu-items-title.html";
 var menuItemHtml = "snippets/menu-item.html";
+var aboutPageHtml = "snippets/about.html";
 
 // Convenience function for inserting innerHTML for 'select'
 var insertHtml = function (selector, html) {
@@ -45,6 +46,8 @@ var insertProperty = function (string, propName, propValue) {
   return string;
 };
 
+//DEPRECATED! I wrote the below "setActiveButton" function in order to 
+// handle the about page
 // Remove the class 'active' from home and switch to Menu button
 var switchMenuToActive = function () {
   // Remove 'active' from home button
@@ -58,6 +61,20 @@ var switchMenuToActive = function () {
     classes += " active";
     document.querySelector("#navMenuButton").className = classes;
   }
+};
+
+// Remove all instances of the 'active' class and add it to the appropriate button
+var setActiveButton = function (buttonId) {
+  // Get all instances of class active (should only be one)
+  var activeButtons = document.querySelectorAll(".active");
+
+  // Iterate through list and remove active class
+  [].forEach.call(activeButtons, function(el) {
+    el.classList.remove("active");
+  });
+
+  // Set active class to provided id
+  document.getElementById(buttonId).className += " active";
 };
 
 // On page load (before images or CSS)
@@ -143,6 +160,14 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
+// Load the about page view
+dc.loadAboutPage = function () {
+  showLoading("#main-content");
+  $ajaxUtils.sendGetRequest(
+    aboutPageHtml,
+    buildAboutPageHTML,
+    false);
+};
 
 // Load the menu items view
 // 'categoryShort' is a short_name for a category
@@ -166,7 +191,7 @@ function buildAndShowCategoriesHTML (categories) {
         categoryHtml,
         function (categoryHtml) {
           // Switch CSS class active to menu button
-          switchMenuToActive();
+          setActiveButton("navMenuButton");
 
           var categoriesViewHtml =
             buildCategoriesViewHtml(categories,
@@ -222,7 +247,7 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
         menuItemHtml,
         function (menuItemHtml) {
           // Switch CSS class active to menu button
-          switchMenuToActive();
+          setActiveButton("navMenuButton");
 
           var menuItemsViewHtml =
             buildMenuItemsViewHtml(categoryMenuItems,
@@ -235,6 +260,10 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
     false);
 }
 
+function buildAboutPageHTML (aboutPageHtml){
+  insertHtml("#main-content", aboutPageHtml);
+  setActiveButton("navAboutButton");
+}
 
 // Using category and menu items data and snippets html
 // build menu items view HTML to be inserted into page
