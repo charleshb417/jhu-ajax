@@ -160,6 +160,9 @@ dc.loadMenuCategories = function () {
     buildAndShowCategoriesHTML);
 };
 
+// We will only need to generate this once
+var restarauntStarRating = generateRandomNumberInclusive(1, 5);
+
 // Load the about page view
 dc.loadAboutPage = function () {
   showLoading("#main-content");
@@ -261,8 +264,22 @@ function buildAndShowMenuItemsHTML (categoryMenuItems) {
 }
 
 function buildAboutPageHTML (aboutPageHtml){
+  // Generate star rating based on restarauntStarRating
+  for (var i=0; i<=5; i++){
+    if (i <= restarauntStarRating){
+      aboutPageHtml = insertProperty(aboutPageHtml, "star-rating"+i, "fa fa-star")
+    }
+    else {
+      aboutPageHtml = insertProperty(aboutPageHtml, "star-rating"+i, "fa fa-star-o")
+    }
+  }
+  
+  // Insert the star rating text
+  aboutPageHtml = insertProperty(aboutPageHtml, "star-rating-quant", restarauntStarRating);
+
+  // Insert HTML
   insertHtml("#main-content", aboutPageHtml);
-  setActiveButton("navAboutButton");
+  setActiveButton("navAboutButton");  
 }
 
 // Using category and menu items data and snippets html
@@ -363,6 +380,9 @@ function insertItemPortionName(html,
   return html;
 }
 
+function generateRandomNumberInclusive(first, last){
+  return Math.floor((Math.random() * last) + first);
+}
 
 global.$dc = dc;
 
