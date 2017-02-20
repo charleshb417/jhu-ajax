@@ -10,7 +10,7 @@
 
   	$scope.messageType = "";
   	$scope.userInputTextbox = "";
-  	$scope.latestMessage = "Please list comma separated dishes that you usually have for lunch. NOTE: empty dishes and trailing commas will be ignored (i.e. dish1,,dish2 OR ,dish1 OR dish1,dish2,)";
+  	$scope.latestMessage = "";
   	
   	$scope.checkIfTooMuch = function(){
 		var lunchInputs = $scope.userInputTextbox.split(',');
