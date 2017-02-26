@@ -14,6 +14,9 @@
         margin-bottom: 7px;
         font-size: 1.2em;
       }
+      li > input[type=number] {
+        width: 60px;
+      }
       li > button {
         margin-left: 6px;
       }
@@ -34,7 +37,10 @@
     <div class="col-md-6" ng-controller="ToBuyController as toBuy">
      <h2>{{toBuy.title}}</h2>
      <ul ng-repeat="item in toBuy.items">
-       <li>Buy {{item.quantity}} {{item.name}}. <button ng-click="toBuy.buyItem($index);">Bought</button></li>
+       <li>{{item.name}} for {{item.pricePerItem}} each.
+         <input type="number" ng-model="item.quantity">
+         <button ng-click="toBuy.buyItem($index);">Bought</button>
+       </li>
      </ul>
      <div class="emptyMessage" ng-if="toBuy.items.length == 0">Everything is bought!</div>
     </div>
@@ -43,7 +49,7 @@
     <div class="col-md-6" ng-controller="AlreadyBoughtController as bought">
      <h2>{{bought.title}}</h2>
      <ul ng-repeat="item in bought.items">
-       <li>Bought {{item.quantity}} {{item.name}}.</li>
+       <li>Bought {{item.quantity}} {{item.name}} for {{ bought.getCostPerItem(item.quantity, item.pricePerItem) | currency : "$$$$$$" : 2 }}.</li>
      </ul>
      <div class="emptyMessage" ng-if="bought.items.length == 0">Nothing bought yet.</div>
     </div>
