@@ -10,8 +10,16 @@
     var self = this;
 
     self.searchTerm = "";
+    self.items = [];
     self.narrowDown = function(){
-      MenuSearchService.getMatchedMenuItems(self.searchTerm);
+      var promise = MenuSearchService.getMatchedMenuItems(self.searchTerm);
+
+      promise.then(function(response) {
+        self.items = response;
+      })
+      .catch(function(error){
+        console.log("There was an error:", error);
+      });
     };
   }
 
