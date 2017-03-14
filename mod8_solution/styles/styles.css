@@ -50,3 +50,16 @@ input[type="text"] {
     transform: rotate(360deg);
   }
 }
+.noBullets {
+  list-style: none;
+}
+.shortName {
+  font-weight: bold;
+}
+.menuItemName {
+  font-weight: bold;
+  text-decoration: underline; 
+}
+.error {
+  color: red;
+}

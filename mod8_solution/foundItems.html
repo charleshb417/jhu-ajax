@@ -1,9 +1,12 @@
 <div>
   <h3>Found Items</h3>
-  <ol>
-    <li ng-repeat="item in list.items">
-      {{item.short_name}} : {{ item.name }} - {{item.description}}
-      <button ng-click="list.onRemove({index: $index});">Remove Item</button>
+  <ul>
+    <li class="noBullets col-xs-12" ng-repeat="item in list.items">
+      <span class="col-xs-3"> <span class="shortName">{{item.short_name}})</span> <span class="menuItemName">{{ item.name }}</span></span>
+      <span class="col-xs-6">{{item.description}}</span>
+      <span class="col-xs-3">
+      	<button ng-click="list.onRemove({index: $index});">Remove</button>
+      </span>
     </li>
-  </ol>
+  </ul>
 </div>

@@ -10,15 +10,19 @@
   function NarrowItDownController(MenuSearchService){
     var self = this;
 
+    self.showError = false;
+
     self.searchTerm = "";
 
     self.found = [];
 
     self.narrowDown = function(){
-      var promise = MenuSearchService.getMatchedMenuItems(self.searchTerm);
+      var url = "https://davids-restaurant.herokuapp.com/menu_items.json";
+      var promise = MenuSearchService.getMatchedMenuItems(self.searchTerm, url);
 
       promise.then(function(response) {
         self.found = response;
+        self.showError = response.length > 0 ? false : true;
       })
       .catch(function(error){
         console.log("There was an error:", error);
@@ -35,8 +39,7 @@
   function MenuSearchService($http){
     var service = this;
 
-    service.getMatchedMenuItems = function(searchTerm){
-      var serviceUrl = "https://davids-restaurant.herokuapp.com/menu_items.json";
+    service.getMatchedMenuItems = function(searchTerm, serviceUrl){
       var searchTermLowerCase = searchTerm.toLowerCase();
 
       return $http({ method: 'GET', url: serviceUrl }).then(function (result) {
