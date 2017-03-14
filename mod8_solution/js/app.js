@@ -2,10 +2,20 @@
 'use strict';
 
   angular.module('NarrowItDownApp', [])
-    .controller('NarrowItDownController', NarrowItDownController);
+    .controller('NarrowItDownController', NarrowItDownController)
+    .service('MenuSearchService', MenuSearchService);
 
-  function NarrowItDownController(){
+  NarrowItDownController.$inject = ['MenuSearchService'];
+  function NarrowItDownController(MenuSearchService){
 
+  }
+
+  function MenuSearchService(){
+    var service = this;
+
+    service.getMatchedMenuItems = function(searchTerm){
+
+    };
   }
 
 })();
