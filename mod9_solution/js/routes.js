@@ -8,19 +8,19 @@
   function RoutesConfig($stateProvider, $urlRouterProvider) {
 
   // // Redirect to tab 1 if no other URL matches
-  // $urlRouterProvider.otherwise('/tab1');
+  $urlRouterProvider.otherwise('/home');
 
-  // // Set up UI states
-  // $stateProvider
-  //   .state('tab1', {
-  //     url: '/tab1',
-  //     templateUrl: 'src/tab1.html'
-  //   })
+  // Set up UI states
+  $stateProvider
+    .state('home', {
+      url: '/home',
+      templateUrl: 'partials/home.html'
+    })
 
-  //   .state('tab2', {
-  //     url: '/tab2',
-  //     templateUrl: 'src/tab2.html'
-  //   });
+    .state('categories', {
+      url: '/categories',
+      templateUrl: 'partials/categories.html'
+    });
   }
 
 })();

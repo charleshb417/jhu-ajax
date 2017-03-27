@@ -26,6 +26,12 @@
     
   </head>
   <body ng-app="MenuApp">
+    <div class="tabs">
+      <a ui-sref="home" ui-sref-active="activeTab">Home</a>
+      <a ui-sref="categories">Categories</a>
+    </div>
+
+    <ui-view></ui-view>
 
   </body>
 </html>
