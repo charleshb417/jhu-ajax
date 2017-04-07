@@ -1,3 +1,12 @@
 h1 {
   margin-bottom: 30px;
 }
+
+.plain_list {
+	list-style: none;
+}
+
+.clickable:hover {
+	cursor: pointer;
+	font-weight: bold;
+}
