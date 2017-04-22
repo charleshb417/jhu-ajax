@@ -1,5 +1,5 @@
 <div id="main-content" class="container registrationForm">
-  <fieldset>
+  <fieldset ng-if="ctrl.isRegistered == false">
     <legend>Sign Up</legend>
     <form name="regForm" novalidate>
 
@@ -64,4 +64,7 @@
 
     </form>
   </fieldset>
+  <div ng-if="ctrl.isRegistered == true">
+    Your information has been saved.
+  </div>
 </div>
