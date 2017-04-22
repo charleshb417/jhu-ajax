@@ -21,7 +21,8 @@ function config($stateProvider, $urlRouterProvider) {
 
     .state('myinfo', {
       url: '/myinfo',
-      templateUrl: 'src/public/myinfo/myinfo.html'
+      templateUrl: 'src/public/myinfo/myinfo.html',
+      controller: 'MyinfoController as ctrl'
     })
 
     .state('signup', {

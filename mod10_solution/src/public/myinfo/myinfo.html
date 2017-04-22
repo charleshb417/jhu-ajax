@@ -1,3 +1,10 @@
 <div id="main-content" class="container">
-MYINFO
+	<div ng-if="ctrl.isRegistered == true">
+		User is registered.
+	</div>
+	<div ng-if="ctrl.isRegistered == false">
+		<a ui-sref="signup">
+			Please sign up.
+		</a>
+	</div>
 </div>
