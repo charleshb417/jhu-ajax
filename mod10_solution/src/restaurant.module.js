@@ -26,7 +26,8 @@ function config($stateProvider, $urlRouterProvider) {
 
     .state('signup', {
       url: '/signup',
-      templateUrl: 'src/public/signup/signup.html'
+      templateUrl: 'src/public/signup/signup.html',
+      controller: 'SignupController as ctrl'
     });
 
 }
