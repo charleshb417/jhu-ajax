@@ -1,10 +1,19 @@
 <div id="main-content" class="container">
 	<div ng-if="ctrl.isRegistered == true">
-		User is registered.
+		<span>{{ctrl.user.firstName}} {{ctrl.user.lastName}}<span><br/>
+		<span>{{ctrl.user.phoneNumber}}</span>
+		<div ng-if="ctrl.user.hasOwnProperty('favItemObject')">
+			<span>Favorite Item: {{ctrl.user.favItemObject.name}}</span><br/>
+			<span>{{ctrl.user.favItemObject.description}}</span>
+		</div>
+		<div ng-if="ctrl.user.hasOwnProperty('noItemExists')">
+			No such menu number ({{ctrl.user.favItem}}) exists.
+		</div>
 	</div>
 	<div ng-if="ctrl.isRegistered == false">
+		Not signed up yet.
 		<a ui-sref="signup">
-			Please sign up.
+			Sign up now!
 		</a>
 	</div>
 </div>

@@ -7,16 +7,21 @@ angular.module('public')
 MyinfoController.$inject = ['user'];
 function MyinfoController(user) {
   var $ctrl = this;
-
+  console.log(user);
   // Check if the user has already been registered or not
   $ctrl.isRegistered = user.isRegistered;
-  $ctrl.user = user;
 
   if (user.hasOwnProperty("objectPromise")){
 	  user.objectPromise.then(function(response){
-	  	user.favItemObject = response;
+	  	if (response.hasOwnProperty("error")){
+	  		user.noItemExists = true;
+	  	} else {
+	  		user.favItemObject = response;
+	  	}
 	  });
   }
+
+  $ctrl.user = user;
 }
 
 
