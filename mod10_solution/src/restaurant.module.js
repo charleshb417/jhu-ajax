@@ -22,7 +22,17 @@ function config($stateProvider, $urlRouterProvider) {
     .state('myinfo', {
       url: '/myinfo',
       templateUrl: 'src/public/myinfo/myinfo.html',
-      controller: 'MyinfoController as ctrl'
+      controller: 'MyinfoController as ctrl',
+      resolve: {
+        user: ['MenuItemsService', 'UserService', function (MenuItemsService, UserService) {
+          var user = UserService.getUserAsObject();
+          user.isRegistered = UserService.isRegistered();
+          /*if (user.favItem.length > 0){
+            user.favItemObject = MenuItemsService.getMenuItem(user.favItem);
+          }*/
+          return user;
+        }]
+      }
     })
 
     .state('signup', {

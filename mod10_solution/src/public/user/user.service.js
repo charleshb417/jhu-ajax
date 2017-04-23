@@ -4,11 +4,13 @@
 angular.module('public')
 .service('UserService', UserService);
 
-function UserService() {
+UserService.$inject = ['MenuItemsService'];
+function UserService(MenuItemsService) {
 	var firstName = "";
 	var lastName = "";
 	var phoneNumber = "";
 	var favItem = "";
+	var favItemObj = {};
 	var userIsRegistered = false;
 
 	// Private Methods
@@ -26,12 +28,12 @@ function UserService() {
 	}
 
 	var setFavoriteItem = function(favItemIn){
-		if (favItemIn)
+		if (favItemIn){
 			favItem = favItemIn;
+		}
 	}
 
 	// Public Methods
-
 	this.getFirstName = function(){
 		return firstName;
 	}
