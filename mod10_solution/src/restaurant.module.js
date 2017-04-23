@@ -27,9 +27,9 @@ function config($stateProvider, $urlRouterProvider) {
         user: ['MenuItemsService', 'UserService', function (MenuItemsService, UserService) {
           var user = UserService.getUserAsObject();
           user.isRegistered = UserService.isRegistered();
-          /*if (user.favItem.length > 0){
-            user.favItemObject = MenuItemsService.getMenuItem(user.favItem);
-          }*/
+          if (user.favItem.length > 0){
+            user.objectPromise = MenuItemsService.getMenuItem(user.favItem);
+          }
           return user;
         }]
       }
