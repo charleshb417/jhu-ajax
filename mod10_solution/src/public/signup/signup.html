@@ -51,10 +51,14 @@
           ng-model="ctrl.user.favItem"
           minlength="2"
           ng-maxlength="2"
+          ng-blur="ctrl.validateShortName(ctrl.user.favItem, regForm)"
           >
           {{ ctrl.user.favItem }}
           <span ng-if="(regForm.favItem.$error.minlength || regForm.favItem.$error.maxlength) && regForm.favItem.$touched" class="invalidInput">
             Favorite item must be EXACTLY 2 characters long
+          </span>
+          <span ng-if="ctrl.user.favItem.length > 0 && !ctrl.favoriteItemExists && regForm.favItem.$touched" class="invalidInput">
+            That item does not exist
           </span>
           <br>
 
