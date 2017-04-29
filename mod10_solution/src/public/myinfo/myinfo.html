@@ -4,7 +4,8 @@
 		<span>{{ctrl.user.phoneNumber}}</span>
 		<div ng-if="ctrl.user.hasOwnProperty('favItemObject')">
 			<span>Favorite Item: {{ctrl.user.favItemObject.name}}</span><br/>
-			<span>{{ctrl.user.favItemObject.description}}</span>
+			<span>{{ctrl.user.favItemObject.description}}</span><br/>
+			<img src="{{ctrl.user.favItemUrl}}"/>
 		</div>
 		<div ng-if="ctrl.user.hasOwnProperty('noItemExists')">
 			No such menu number ({{ctrl.user.favItem}}) exists.

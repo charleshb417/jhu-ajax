@@ -7,7 +7,7 @@ angular.module('public')
 MyinfoController.$inject = ['user'];
 function MyinfoController(user) {
   var $ctrl = this;
-  console.log(user);
+  
   // Check if the user has already been registered or not
   $ctrl.isRegistered = user.isRegistered;
 
@@ -17,6 +17,7 @@ function MyinfoController(user) {
 	  		user.noItemExists = true;
 	  	} else {
 	  		user.favItemObject = response;
+	  		user.favItemUrl = "http://www.davidchuschinabistro.com/images/" + user.favItem + ".jpg";
 	  	}
 	  });
   }
